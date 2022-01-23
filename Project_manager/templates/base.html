@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block styles %}{% endblock styles %}
+    <link rel="stylesheet" href='{% static "main/styles/base.css"%}'>
+</head>
+
+<body>
+    <header>
+        <div id="title-box">
+            <h1 id="title"> Project Manager </h1>
+        </div>
+    </header>
+    <nav>
+        <div id="navdiv">
+            <div>
+                <a href="#">Home</a>
+            </div>
+            <div>
+                <a href="#">Assgined Tasks</a>
+            </div>
+            <div>
+                <a href="#">Progress</a>
+            </div>
+            <div>
+                <a href="#">Manage</a>
+            </div>
+            <div>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block  mainbody %}{% endblock  %}
+    </main>
+</body>
+</html>
