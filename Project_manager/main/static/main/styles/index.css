@@ -1,0 +1,26 @@
+.box{
+    margin-top: 15px;
+    display: flex;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#lefbox{
+    width: 30%;
+    height: 250px;
+}
+
+#rightbox{
+    padding-left: 20px;
+    color: honeydew;
+    width: 80%;
+    height: 250px;
+    background-color: rgb(31, 31, 31);
+}
+
+.image{
+    width: 250px;
+    height: 250px;
+}

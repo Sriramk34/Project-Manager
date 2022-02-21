@@ -1,0 +1,31 @@
+body{
+    background-color: #242424;
+}
+
+#box{
+    border-radius: 5px;
+    background-color: rgb(88, 88, 88);
+    height: 200px;
+    width: 450px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+#titlebox{
+    background-color: rgb(54, 155, 250);
+    height: 50px;
+}
+
+#titlebox h2{
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    
+}
+
+input{
+    font-size: large;
+}

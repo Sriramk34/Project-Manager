@@ -1,23 +1,25 @@
 from datetime import date
 from operator import mod
 from pyexpat import model
+from tkinter import CASCADE
 from tkinter.tix import Balloon
 from django.db import models
 
 class Users(models.Model):
     depts = (
-        ("E", "Electrical"),
-        ("M", "Mechanical"),
-        ("S", "Software"),
-        ("A", "Admin"),
-        ("O", "Other")
+        ("Electrical", "Electrical"),
+        ("Mechanical", "Mechanical"),
+        ("Software", "Software"),
+        ("Admin", "Admin"),
+        ("Other", "Other")
     )
 
     roles = (
-        ("M", "Manager"),
-        ("T", "Team Leader"),
-        ("E", "Engineer"),
-        ("A", "Administrator"),
+        ("Manager", "Manager"),
+        ("Team-Leader", "Team Leader"),
+        ("Engineer", "Engineer"),
+        ("Administrator", "Administrator"),
+        ("Other", "Other")
     )
     name = models.CharField(max_length=50)
     employeeID = models.IntegerField()
@@ -70,3 +72,7 @@ class assignments(models.Model):
     assignment_end_date = models.DateField(null= True)
     assignment_status = models.CharField(choices=st, max_length=15)
 
+class login(models.Model):
+    username = models.CharField(max_length=40)
+    password = models.CharField(max_length=30)
+    emp = models.ForeignKey(Users, on_delete=models.CASCADE)

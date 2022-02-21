@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Manage{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'main/styles/manage.css' %}">
+{% endblock styles %}
+
+{% block mainbody %}
+    <ol>
+        <li>
+            <div>
+                <div class="leftbox">
+                    <h2>Generate Project Report</h2>
+                </div>
+                <form action="" >
+                    <div class="centerbox">
+                        <label class="label" for="Project">Select Project:</label>
+                        <select name="Project" >
+                        {% for project in projects %}
+                            <option class = "option" value="{{project.project_id}}">{{project.project_name}}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <div class="rightbox">
+                        <input type="submit" name="Project" value = "Generate">
+                    </div>
+                </form>
+            </div>
+        </li>
+        <br> <br>
+        <li>
+            <div>
+                <div class="leftbox">
+                    <h2>Generate Employee Report</h2>
+                </div>
+                <form action="" >
+                    <div class="centerbox">
+                        <label class="label" for="Employee">Select Employee:</label>
+                        <select name="Employee" >
+                        {% for emp in employees %}
+                            <option class = "option" value="{{emp.id}}">{{emp.name}} ({{emp.id}})</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <div class="rightbox">
+                        <input type="submit" name="Employee" value = "Generate">
+                    </div>
+                </form>
+            </div>
+        </li>      
+        <br><br>
+        <li>
+            <div>
+                <button>
+                    Admin Control Panel
+                </button>
+            </div>
+        </li>
+    </ol>
+
+{% endblock mainbody %}

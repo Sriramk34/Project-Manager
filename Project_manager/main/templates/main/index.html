@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block styles %} 
-    <link rel="stylesheet" href="{% static 'main/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'main/styles/index.css' %}">
+
 {% endblock styles %}
 
-{% block title %} Project Manager{% endblock  %}
+{% block title %}Project Manager{% endblock  %}
+
+{% block mainbody %}
+<br><br>
+    <div class="box">
+        <div id="leftbox">
+            <img class="image" src="{% static 'main/images/default.png' %}" alt="Placeholder of iamge of person">
+        </div>
+        <div id="rightbox">
+            <h2>Name: {{emp.name}}</h2>
+            <h2>Designation: {{emp.designation}}</h2>
+            <h2>Phone: {{emp.phone}}</h2>
+            <h2>Department: {{emp.department}}</h2>
+        </div>
+    </div>
+{% endblock mainbody %}
