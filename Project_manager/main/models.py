@@ -57,6 +57,9 @@ class tasks(models.Model):
     task_description = models.CharField(max_length=1000, blank=True)
     task_project = models.ForeignKey(Projects, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.task} - {self.task_project}"
+
 
 class assignments(models.Model):
     st = (
@@ -71,6 +74,12 @@ class assignments(models.Model):
     assignment_start_date = models.DateField(default=date.today)
     assignment_end_date = models.DateField(null= True)
     assignment_status = models.CharField(choices=st, max_length=15)
+    time_req = models.FloatField(null = True)
+    work_done = models.FloatField(default=0)
+    work_done_temp = models.FloatField(default=0)
+    def __str__(self):
+        return f"{self.assigned_task.task} - {self.asignee.name}"
+
 
 class login(models.Model):
     username = models.CharField(max_length=40)

@@ -3,7 +3,7 @@ from pydoc import isdata
 from django.forms import NullBooleanField
 from django.http import HttpResponse, HttpResponseRedirect, response
 from django.shortcuts import render
-from .models import Projects, Users, login
+from .models import Projects, Users, login, assignments
 from django.db.models import Q 
 
 def checklogin(request):
@@ -23,14 +23,15 @@ def empty(request):
         return HttpResponseRedirect("/login/")
 
 def index(request):
-    if checklogin(request) == 0:
-        return HttpResponseRedirect("/login/")   
-    else:
+    if checklogin(request) == 1:
         return render(request, 'main/index.html',{
         "emp":login.objects.get(username = request.session["User"]).emp
-    })
+         })
+    else:
+        return HttpResponseRedirect("/login/")  
+    
 
-def manage(request):
+def manage(request):                                                            
     if checklogin(request) != 1:
         return HttpResponseRedirect("/login/")
     projects = Projects.objects.filter(~Q(status = "C"))
@@ -69,3 +70,13 @@ def login_site(request):
         return render(request, 'main/login.html')
     return render(request, 'main/login.html')
 
+def assigned_tasks(request):                                            #Views function for assigned tasks page
+    if checklogin(request) != 1:
+        return HttpResponseRedirect("/login/")
+    
+    user = login.objects.get(username = request.session["User"]).emp     
+    tasks = assignments.objects.filter(asignee = user)
+    #print(tasks)
+    return render(request, "main/assigned.html",{
+        "tasks" : tasks,
+    })

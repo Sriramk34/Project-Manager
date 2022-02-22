@@ -1,0 +1,26 @@
+.container{
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background-color: rgb(185, 185, 185);
+    border-style: solid;
+    border-color: black;
+    border: 7px;
+}
+
+table{
+    width: 100%;
+}
+
+.ele th{
+    font-size: larger;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+h2{
+    color: honeydew;
+    text-align: center;
+}

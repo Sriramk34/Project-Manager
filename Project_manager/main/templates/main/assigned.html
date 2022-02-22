@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Tasks{% endblock title %} 
+{% block styles %} <link rel="stylesheet" href="{% static 'main/styles/assigned.css' %}"> {% endblock styles %}
+
+{% block mainbody %}
+    <br>
+    <div class ="container">
+        <table>
+            <tr>
+                <th>Task Name</th>
+                <th>Project</th>
+                <th>Due Date</th>
+                <th>Status</th>
+            </tr>
+            {% for x in tasks %}
+                <tr class="ele">
+                    <th>{{x.assigned_task.task}}</th>
+                    <th>{{x.assigned_project.project_name}}</th>
+                    <th>{{x.assignment_end_date}}</th>
+                    <th>{{x.assignment_status}}</th>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    <br>
+    <h2>You've reached the end!!</h2>
+{% endblock mainbody %}
