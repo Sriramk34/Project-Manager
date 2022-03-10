@@ -4,6 +4,7 @@ from pyexpat import model
 from tkinter import CASCADE
 from tkinter.tix import Balloon
 from django.db import models
+from django.contrib.auth.models import User
 
 class Users(models.Model):
     depts = (
@@ -21,6 +22,7 @@ class Users(models.Model):
         ("Administrator", "Administrator"),
         ("Other", "Other")
     )
+    user = models.ForeignKey(User, null = True, on_delete=models.PROTECT)
     name = models.CharField(max_length=50)
     employeeID = models.IntegerField()
     designation = models.CharField(max_length=50)
@@ -63,17 +65,18 @@ class tasks(models.Model):
 
 class assignments(models.Model):
     st = (
-        ("H", "On Hold"),
-        ("P", "In Progress"),
-        ("F", "Finished"),
-        ("C", "Confirmed")
+        ("On Hold", "H"),
+        ("In Progress", "P"),
+        ("Finished", "F"),
+        ("Confirmed", "C"),
+        ("Verified", "V")
     )
     asignee = models.ForeignKey(Users, on_delete=models.PROTECT)
     assigned_project = models.ForeignKey(Projects, on_delete=models.PROTECT)
     assigned_task = models.ForeignKey(tasks, on_delete=models.PROTECT)
     assignment_start_date = models.DateField(default=date.today)
     assignment_end_date = models.DateField(null= True)
-    assignment_status = models.CharField(choices=st, max_length=15)
+    assignment_status = models.CharField(choices=st, max_length=15, default="C")
     time_req = models.FloatField(null = True)
     work_done = models.FloatField(default=0)
     work_done_temp = models.FloatField(default=0)
@@ -85,3 +88,5 @@ class login(models.Model):
     username = models.CharField(max_length=40)
     password = models.CharField(max_length=30)
     emp = models.ForeignKey(Users, on_delete=models.CASCADE)
+
+

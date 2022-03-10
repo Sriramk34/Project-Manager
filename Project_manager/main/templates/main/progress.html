@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters  %}
+{% block title %}Progress{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/styles/progress.css' %}">
+{% endblock styles %}
+
+{% block mainbody %}
+    <form action="">
+        {% csrf_token %}
+        <label for="start">Start Date:</label>
+        <input type="date" id="start" name="start">
+
+        <label for="End">End Date:</label>
+        <input type="date" id="End" name="end">
+
+        <input type="submit">
+    </form>
+    <br>
+    {% for x in tasks %}
+    <div class="container">
+        <div class = "sb">
+            <h3>{{x.assigned_task}}</h3>
+        </div>
+        <div class = "sb">
+            <h3>{{x.assignment_end_date}}</h3>
+        </div>
+        <div class="ssb">
+            <h3>{{x.time_req|sub:x.work_done}}</h3>
+        </div>
+        <div class="ssb">
+            <h3>{{x.work_done_temp}}</h3>
+        </div>
+        <div class="mb">
+            <form action="", method="POST">
+                {% csrf_token %}
+                <div class="left">
+                    <label for="status">Status</label>
+                    <select name="status" >
+                        {% for i in statuses %}
+                            <option value="{{i.0}}">{{i.1}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class = "right">
+                    <label for="wd"> Work Done This Week</label>
+                    <input type="number" name="wd" value = {{x.work_done_temp}}>
+                </div>
+                <div class="right">
+                    <button type="submit" name="ID" value="{{x.id}}">Update</button>
+                </div>
+            </form>
+        </div>  
+    </div>
+    <br>
+    {% endfor %}
+    <br>
+    <br>
+    <div class="box">
+        <form action="", method="POST">
+            {% csrf_token %}
+            <button type="submit" name="Saves" value="True" >Save To Main</button>
+        </form>
+    </div>
+    
+{% endblock mainbody %}

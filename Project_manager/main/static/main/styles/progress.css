@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    height: 10%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(136, 136, 136);
+}
+
+.sb{
+    width: 20%;
+    text-align: center;
+    word-wrap: normal;
+    border: 2px solid black;
+}
+
+.ssb{
+    width: 10%;
+    border: 2px solid black;
+}
+
+h3{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+form{
+    display: flex;
+}
+
+.mb{
+    width: 50%;
+    height: auto;
+    border: 2px solid black;
+}
+.left{
+    width: 40%;
+    background-color: aqua;
+    border: 2px solid black;
+}
+
+.right{
+    width: 30%;
+    border: 2px solid black;
+}
+
+.center{
+    align-self: center;
+}
+
+.box{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box form button{
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#smallComtainer{
+    
+}

@@ -37,8 +37,8 @@
                 </div>
                 <form action="" >
                     <div class="centerbox">
-                        <label class="label" for="Employee">Select Employee:</label>
-                        <select name="Employee" >
+                        <label class="label" for="EmployeeID">Select Employee:</label>
+                        <select name="EmployeeID" >
                         {% for emp in employees %}
                             <option class = "option" value="{{emp.id}}">{{emp.name}} ({{emp.id}})</option>
                         {% endfor %}
@@ -53,9 +53,7 @@
         <br><br>
         <li>
             <div>
-                <button>
-                    Admin Control Panel
-                </button>
+                <a href="/admin">Admin Panel</a>
             </div>
         </li>
     </ol>

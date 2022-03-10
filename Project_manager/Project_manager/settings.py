@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mathfilters',
     'main',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -122,4 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SESSION_COOKIE_AGE = 600
+SESSION_COOKIE_AGE = 6000
